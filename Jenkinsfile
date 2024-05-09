@@ -50,13 +50,13 @@ pipeline {
             // node_modules/.bin/serve -s build &
             // the & and the sleep right after
             // We use the '&' so that serve runs in the background
-            // and then wait 10 seconds to allow the server to start before running our playwright test
+            // and then sleep 10 seconds to allow the server to start before running our playwright test
             steps {
                 sh '''
                     echo 'Running E2E'
                     npm install serve
                     node_modules/.bin/serve -s build &
-                    wait 10
+                    sleep 10
                     npx playwright test
                 '''
             }
