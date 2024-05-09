@@ -18,11 +18,12 @@ pipeline {
                 '''
             }
         }
-        stage('test') {
+        stage('Test') {
             steps {
                 sh '''
-                    echo 'Testing...'
+                    echo 'Test Stage'
                     npm --version
+                    grep 'build/index.html'
                 '''
             }
         }
