@@ -43,11 +43,14 @@ pipeline {
                     reuseNode true
                 }
             }
+            // We are directly calling node_modules/.bin/serve here instead of calling
+            // 'serve' directly because we are installing the serve package locally
+            // because of EAACCESS issues
             steps {
                 sh '''
                     echo 'Running E2E'
                     npm install serve
-                    serve -s build
+                    node_modules/.bin/serve -s build
                     npx playwright test
                 '''
             }
