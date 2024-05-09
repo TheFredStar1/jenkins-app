@@ -19,5 +19,18 @@ pipeline {
                 '''
             }
         }
+        stage('test') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
+            stepts {
+                sh '''
+                    echo 'Testing...'
+                '''
+            }
+        }
     }
 }
