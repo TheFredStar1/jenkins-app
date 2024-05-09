@@ -24,7 +24,6 @@ pipeline {
                 sh '''
                     echo 'Test Stage'
                     npm --version
-                    // Test to see if build/index.html exists
                     test -f 'build/index.html'
                     npm test
                 '''
@@ -47,7 +46,7 @@ pipeline {
 
     post {
         always {
-		        // Specify where JUnit file exists
+		    // Specify where JUnit file exists
             junit 'test-results/junit.xml'
         }
     }
