@@ -46,11 +46,17 @@ pipeline {
             // We are directly calling node_modules/.bin/serve here instead of calling
             // 'serve' directly because we are installing the serve package locally
             // because of EAACCESS issues
+
+            // node_modules/.bin/serve -s build &
+            // the & and the sleep right after
+            // We use the '&' so that serve runs in the background
+            // and then wait 10 seconds to allow the server to start before running our playwright test
             steps {
                 sh '''
                     echo 'Running E2E'
                     npm install serve
-                    node_modules/.bin/serve -s build
+                    node_modules/.bin/serve -s build &
+                    wait 10
                     npx playwright test
                 '''
             }
