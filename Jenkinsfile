@@ -26,7 +26,7 @@ pipeline {
                     reuseNode true
                 }
             }
-            stepts {
+            steps {
                 sh '''
                     echo 'Testing...'
                 '''
