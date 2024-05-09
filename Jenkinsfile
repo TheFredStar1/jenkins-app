@@ -24,6 +24,7 @@ pipeline {
                     echo 'Test Stage'
                     npm --version
                     test -f 'build/index.html'
+                    npm test
                 '''
             }
         }
