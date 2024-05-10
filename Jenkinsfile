@@ -59,7 +59,7 @@ pipeline {
                     sleep 10
                     npx playwright install chromium
                     sleep 10
-                    npx playwright test
+                    npx playwright test --reporter=html
                 '''
             }
         }
