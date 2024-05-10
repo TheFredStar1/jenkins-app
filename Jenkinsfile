@@ -69,6 +69,8 @@ pipeline {
         always {
 		    // Specify where JUnit file exists
             junit 'jest-results/junit.xml'
+            // Generated with Jenkins Snippet Generator
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
     }
 }
