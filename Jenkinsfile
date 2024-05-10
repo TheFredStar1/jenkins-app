@@ -68,7 +68,7 @@ pipeline {
     post {
         always {
 		    // Specify where JUnit file exists
-            junit 'test-results/junit.xml'
+            junit 'jest-results/junit.xml'
         }
     }
 }
